@@ -17,6 +17,14 @@
 8. Tailwind css
 9. Django , nginx , postgresql , Docker , selenium
 
+<br>
+<br>
+
+![chrome_v5yt6UdCDd](https://user-images.githubusercontent.com/102602422/160629371-54c06158-bbb0-433b-a4cf-b74be605d8b9.png)
+
+<br>
+<br>
+
 
 
 
