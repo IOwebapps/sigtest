@@ -26,6 +26,8 @@ docker-compose up
 # 3-7 דקות. חד פעמי
 
 
+
+אופציה. לא חובה!
 ## פקודות MAKE  **יש לאכלס לפי שם המכולות מקובץ ה YML
 To use this project, run this commands:
 
