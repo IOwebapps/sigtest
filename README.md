@@ -29,8 +29,8 @@ docker-compose up
 
 
 
-**אופציה. לא חובה!
-## פקודות MAKE  **יש לאכלס לפי שם המכולות מקובץ ה YML
+## פקודות MAKE  **יש לאכלס לפי שם המכולות מקובץ ה YML  **אופציה. לא חובה!
+
 To use this project, run this commands:
 
 1. `make up` to build the project and starting containers.
