@@ -20,6 +20,7 @@
 
 ## פקודות בנייה גלובלי  ##
 docker-compose build
+<br>
 docker-compose up
 
 # 3-7 דקות. חד פעמי
