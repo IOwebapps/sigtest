@@ -1,0 +1,42 @@
+<a class="btn btn-ghost normal-case text-xl mt-2">Selenium</a>
+
+
+<div class="mr-2 ml-2 mb-1">
+    קובץ ראשי scr/apps/home/views.py
+</div>
+
+
+  <div class="mockup-code" >
+    <pre style="direction: ltr;"><code >### 3rd party
+        from selenium import webdriver
+        import requests
+        
+        def mybot(request):
+            print('starting')
+        
+            try:
+                from selenium import webdriver
+                from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+                driver = webdriver.Remote("http://localhost:4444/wd/hub", DesiredCapabilities.CHROME)
+                driver.get('http://www.google.com')
+                driver.close
+                return HttpResponse('<div class="text-center">נשלח בהצלחה!</div>')
+            except:
+                return HttpResponse('<div class="text-center">משהו השתבש!</div>')</code></pre>
+   
+    <pre  class="text-error"><code>חובה לרענן מכולת SiteWeb לאחר שינוי קוד פייטון!</code></pre>
+  </div>
+
+
+  <div class="mr-2 ml-2 mb-1 mt-4">
+      <p>
+          פקודות חשובות:
+      </p>
+      <p class="text-error">
+        docker-compose build    בניית מערכת
+      </p>
+      <p class="text-error">
+        docker-compose up       הפעלת מערכת + לוגים
+    </p>
+</div>
+

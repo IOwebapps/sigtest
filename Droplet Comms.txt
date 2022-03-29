@@ -1,0 +1,83 @@
+DigitalOcean:
+open Drop  ubuntu Docker
+
+
+SSH:
+https://docs.digitalocean.com/products/droplets/how-to/add-ssh-keys/create-with-putty/
+
+FTP:
+https://docs.digitalocean.com/products/droplets/how-to/transfer-files/
+
+
+####Commands####
+Docker:
+
+make Folder web
+upload system to web
+console Droplet.
+
+cd web
+docker-compose build
+docker-compose up
+
+####SYSTEM####
+sudo docker exec -it <container_name> sh    #SH Continer
+
+docker restart $(docker ps -a -q)       #Restart
+
+docker kill $(docker ps -q)  #stop all containers
+
+@!@!@!@!@!@!@!@!@
+docker rm $(docker ps -a -q) #remove all containers
+docker rmi $(docker images -q) #remove all docker images
+!@!@!@!@!@!@!@!@!
+
+
+
+
+
+####Ngnix####
+sudo apt-get install nginx
+sudo nano /etc/nginx/sites-available/mysite
+
+server {
+    server_name NAME.sitedomain.co.il;
+
+    location / {
+        proxy_pass http://0.0.0.0:8001;
+        proxy_buffering off;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+}
+
+sudo ln -s /etc/nginx/sites-available/mysite /etc/nginx/sites-enabled/
+
+sudo ufw allow 'Nginx HTTP'
+sudo ufw allow 'Nginx HTTPS'
+sudo /etc/init.d/nginx restart
+
+####SSL####
+sudo snap install --classic certbot
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+sudo certbot --nginx
+
+####Django####
+python manage.py createsuperuser
+python manage.py makemigrations
+python manage.py migrate
+
+
+DB:
+&&&&&&&&&&&  Backup  &&&&&&&&&&&&
+docker exec DBNAME pg_dump -U user -h localhost django_db > dbasetest.sql
+
+&&&&&&&&&&&  RESTORE  &&&&&&&&&&&&
+docker exec -i DBNAME psql -U user django_db < dbaseALL140122.sql       #X2
+
+
+
+###Extra  Dont use unless you need it. you will know when you need it###
+python manage.py migrate admin zero
+python manage.py migrate auth zero
+python manage.py migrate contenttypes zero
+python manage.py migrate sessions zero

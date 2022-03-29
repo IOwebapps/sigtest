@@ -1,0 +1,82 @@
+*****
+venv:
+sudo apt install python3-venv
+python3 -m venv env
+source env/bin/activate
+
+******
+
+*****
+req:
+sudo apt-get update
+sudo apt-get upgrade
+pip install requests
+pip install -r requirements.txt
+pip install djangorestframework
+pip install markdown
+pip install django-filter
+pip install uwsgi
+sudo apt-get install python3.8-dev
+sudo apt-get install gcc
+sudo apt-get install nginx
+******
+
+
+****
+run:
+uwsgi --http :8000 --module main.wsgi
+****
+
+
+****
+nginx:
+sudo apt-get install nginx
+sudo nano /etc/nginx/sites-available/mysite.conf
+sudo ln -s /etc/nginx/sites-available/mysite.conf /etc/nginx/sites-enabled/
+sudo /etc/init.d/nginx restart
+****
+
+***
+ssh:
+sudo apt update
+sudo apt install openssh-server
+sudo ufw allow ssh
+ssh username@ip_address
+
+certbot:
+sudo snap install --classic certbot
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+sudo certbot --nginx
+sudo ufw allow 'Nginx HTTPS'
+
+modem - 80 / 443
+
+****
+
+uwsgi --socket microdomains.sock --module main.wsgi --chmod-socket=666
+
+
+
+sudo mkdir -p /home/botplace/env/
+python3 -m venv /home/botplace/env/bp
+source /home/botplace/env/bp/bin/activate       
+
+sudo /etc/init.d/nginx restart
+uwsgi --ini police_uwsgi.ini
+
+
+###Uwsgi
+sudo mkdir -p /etc/uwsgi/vassals
+sudo ln -s /home/arazu/Desktop/Webs/police/police_uwsgi.ini /etc/uwsgi/vassals/
+uwsgi --emperor /etc/uwsgi/vassals --uid www-data --gid www-data
+
+
+***Migrate
+python manage.py makemigrations
+python manage.py migrate
+
+
+django-admin.py startproject main
+
+sudo $(which python) manage.py runserver  0.0.0.0:80
+https://tonyteaches.tech/django-nginx-uwsgi-tutorial/

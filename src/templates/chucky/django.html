@@ -1,0 +1,79 @@
+<div >
+    <a class="btn btn-ghost normal-case text-xl mt-2 ">Django</a>
+
+
+    <div class="mr-2 ml-2 mb-1 mt-4">
+        מבנה קבצים
+    </div>
+    
+    
+      <div class="mockup-code mr-2 ml-2 mb-1 mt-4">
+        <pre><code>תיקיית M
+            ├─docker-compose.yml     #שליטה בבניית מכולה
+            ├── src                  #תיקיית קוד ראשית
+            │    ├── // apps         #תיקיות אפליקציות
+            │    │         └──home   #האפליקציה כולל פונקציות וקישורים
+            │    ├── // iosettings   #הגדרות מערכת ושרת
+            │    ├── // static       #הגשת CSS/מדיה
+            │    ├── // templates    #הגשת HTML
+            │    │ 
+            │    ├requirements.pip   #מריץ ומתקין את הרשימה בבנייה
+            │
+            └──  compose              #תיקיית פקודות בנייה
+           </code></pre>
+        <pre  class="text-warning"><code>קובץ עבודה ראשי scr/apps/home/views.py</code></pre> 
+        <pre  class="text-success"><code>קובץ קישורי שרת ראשי scr/apps/home/url.py</code></pre>
+        <pre  class="text-accent"><code>קובץ הגדרות ראשי scr/ioSettings/settings.py</code></pre>
+        <pre  class="text-error"><code>חובה לרענן מכולת SiteWeb לאחר שינוי קוד פייטון!</code></pre>
+      </div>
+    
+    
+      <div class="mr-2 ml-2 mb-1 mt-4">
+        הדגמות
+    </div>
+    
+    <div class="mockup-code mr-2 ml-2 mb-1 mt-4">
+        <pre><code>הגשת דף עם    scr/apps/home/views.py   CLASS
+           </code></pre>
+        <pre   style="direction: ltr;"><code>class HomeServe(TemplateView):
+            template_name = 'home.html'  #page path in tamplates folder
+    
+            #context
+            def get_context_data(self, **kwargs):
+                context = super().get_context_data(**kwargs)
+                context['title'] ="סייבר"  # add context title with the = var to the serve / in html you will call {{title}} to get the var/array/object|s
+                return context</code></pre> 
+        <pre  class="text-success"><code>בכדי להגיש פונקציה או קלסס חיצוני חובה להוסיף שורה בקובץ ה scr/apps/home/url.py</code></pre>
+        <pre   style="  direction: ltr;"><code>urlpatterns = [
+            path('',HomeServe.as_view(),name="myhub"),  #call class HomeServe as main view on root url 
+            re_path(r'^mypath/',views.pathme, name='mypath'),   #call function pathme and name it mypath to allow html call it by { % mypath%} , שם הקישור יהיה mypath
+            # יש להוסיף את אופי הפונקציה לתוך הרשימה
+            # re_path(r'^mybot/', views.mybot, name='mybot'),  #call function mybot with path mybot/ and name it mybot to aloow html call it by name.
+        ]</code></pre> 
+        <pre  class="text-error"><code>חובה לרענן מכולת SiteWeb לאחר שינוי קוד פייטון!</code></pre>
+      </div>
+    
+      <div class="mockup-code mr-2 ml-2 mb-1 mt-4">
+        <pre><code>הגשת דף עם scr/apps/home/views.py  function
+           </code></pre>
+        <pre   style="  direction: ltr;"><code>def pathme(request):
+            mainelement=request.GET.get('query_set')  #get the var of query_set from the request
+            return render(request, 'chucky/'+mainelement+'.html')  #return html based on the query_set in the request</code></pre> 
+        <pre  class="text-success"><code>בכדי להגיש פונקציה או קלסס חיצוני חובה להוסיף שורה בקובץ ה scr/apps/home/url.py</code></pre>
+        <pre   style="  direction: ltr;"><code>urlpatterns = [
+            path('',HomeServe.as_view(),name="myhub"),  #call class HomeServe as main view on root url 
+            re_path(r'^mypath/',views.pathme, name='mypath'),   #call function pathme and name it mypath to allow html call it by { % mypath%} , שם הקישור יהיה mypath
+            # יש להוסיף את אופי הפונקציה לתוך הרשימה
+            # re_path(r'^mybot/', views.mybot, name='mybot'),  #call function mybot with path mybot/ and name it mybot to aloow html call it by name.
+        ]</code></pre>
+        <pre  class="text-success"><code>בכדי לזמן את הקישור ניתן לכתוב ב scr/templates/base.html</code></pre>
+        ניתן לקרוא בשם בעזרת
+            { % %}
+        <pre   style="  direction: ltr;"><code>
+            
+            hx-get="{% url 'mypath'%}?query_set=django"  hx-target="#maindiv"   
+    <div class="divider h-16	 sm:divider-horizontal"></div> </code></pre> 
+        <pre  class="text-error"><code>חובה לרענן מכולת SiteWeb לאחר שינוי קוד פייטון!</code></pre>
+      </div>
+</div>
+

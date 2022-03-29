@@ -1,0 +1,78 @@
+
+{% load static %}
+
+
+<html data-textdirection="rtl">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
+    <meta name="description" content="SigTest">
+    <meta name="keywords" content="cyber,pentest,testserver,django,docker,nginx,html,css,tailwind">
+    <meta name="author" content="iowebapps">
+    <title>Sig Test</title>
+    <link
+      href="{% static 'home/full.css' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+    href="{% static 'home/output.css' %}"
+    rel="stylesheet"
+    type="text/css"
+  />
+    
+    <!-- <script src="{% static 'home/tail.js' %}"></script> -->
+    <script src="{% static 'home/htmx.min.js' %}"></script>
+
+
+
+    <style>
+
+    .isclick{
+        cursor: pointer;
+    }
+    </style>
+  </head>
+  <body dir="rtl">
+
+    {% include 'chucky/header.html' %}
+
+    <div class="mt-2 mb-4 static ">
+      {% block content %}
+      {% endblock %}
+    </div>
+
+   
+
+    {% include 'chucky/footer.html' %}
+
+
+
+    
+
+
+      <script>
+
+        window.onload = function () {
+            var loadTime = window.performance.timing.domContentLoadedEventEnd-window.performance.timing.navigationStart;
+            document.getElementById("loadtimer").innerHTML = "| טעינת עמוד " + loadTime + " ms"
+            console.log('Page load time is '+ loadTime);
+        }
+      
+
+        document.getElementById("localip").innerHTML = "  כתובת שרת מקומי: " + location.protocol + '//' + location.host
+        document.getElementById("localsel").innerHTML = "  כתובת שרת סילניום:  " + location.protocol + '//' + location.hostname+ ':4444'
+
+        document.getElementById("year").innerHTML = new Date().getFullYear();
+
+        document.body.addEventListener('htmx:configRequest', (event) => {
+            event.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
+            
+        })
+    </script>
+  </body>
+
+</html>
+
+

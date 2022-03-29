@@ -1,0 +1,19 @@
+
+docker-compose build
+docker-compose up
+
+
+####Django####
+python manage.py createsuperuser
+python manage.py makemigrations
+python manage.py migrate
+
+
+DB:
+&&&&&&&&&&&  Backup  &&&&&&&&&&&&
+docker exec DBNAME pg_dump -U user -h localhost django_db > dbasetest.sql
+
+&&&&&&&&&&&  RESTORE  &&&&&&&&&&&&
+docker exec -i DBNAME psql -U user django_db < dbaseALL140122.sql       #X2
+
+
