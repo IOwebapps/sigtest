@@ -27,7 +27,9 @@ docker-compose up
 
 
 
-אופציה. לא חובה!
+
+
+**אופציה. לא חובה!
 ## פקודות MAKE  **יש לאכלס לפי שם המכולות מקובץ ה YML
 To use this project, run this commands:
 
