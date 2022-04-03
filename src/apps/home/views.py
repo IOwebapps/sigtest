@@ -83,9 +83,11 @@ def myposttest(request):
 
     return HttpResponse('<div class="text-center">משהו השתבש!</div>')  #Not post
 
+import os
+import psutil
+
 def Dropletuse(request):
-    import os
-    import psutil
+
     
     # Getting loadover15 minutes
     load1, load5, load15 = psutil.getloadavg()
