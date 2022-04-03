@@ -11,9 +11,9 @@ python manage.py migrate
 
 DB:
 &&&&&&&&&&&  Backup  &&&&&&&&&&&&
-docker exec DBNAME pg_dump -U user -h localhost django_db > dbasetest.sql
+docker exec DBNAME pg_dump -U ducktest -h localhost testdb > dbasetest.sql
 
 &&&&&&&&&&&  RESTORE  &&&&&&&&&&&&
-docker exec -i DBNAME psql -U user django_db < dbaseALL140122.sql       #X2
+docker exec -i DBNAME psql -U ducktest testdb < dbasetest.sql       #X2
 
 
