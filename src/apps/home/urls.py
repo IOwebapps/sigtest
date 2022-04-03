@@ -12,8 +12,8 @@ urlpatterns = [
     re_path(r'^mypath/',views.pathme, name='mypath'),
     re_path(r'^mybot/', views.mybot, name='mybot'),
     re_path(r'^mypen/', views.myposttest, name='mypen'),
-
-    
+    re_path(r'^serverstat/', views.Dropletuse, name='serverstat'),
+    re_path(r'^canibals/', views.canibals, name='canibals'),
 
     # re_path(r'^formget/', views.formgetter, name='formgetter'),
 

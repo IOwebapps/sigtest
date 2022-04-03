@@ -27,7 +27,7 @@ docker restart $(docker ps -a -q)       #Restart
 
 docker kill $(docker ps -q)  #stop all containers
 
-@!@!@!@!@!@!@!@!@
+@!@!@!@!@!@!@!@!@  Dont use!!! unless you need it.  Dont use!!! unless you need it. Dont use!!! unless you need it.
 docker rm $(docker ps -a -q) #remove all containers
 docker rmi $(docker images -q) #remove all docker images
 !@!@!@!@!@!@!@!@!
@@ -76,7 +76,7 @@ docker exec -i DBNAME psql -U user django_db < dbaseALL140122.sql       #X2
 
 
 
-###Extra  Dont use unless you need it. you will know when you need it###
+###Extra  Dont use!!! unless you need it. you will know when you need it###
 python manage.py migrate admin zero
 python manage.py migrate auth zero
 python manage.py migrate contenttypes zero

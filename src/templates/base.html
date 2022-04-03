@@ -2,54 +2,175 @@
 {% load static %}
 
 
-<html data-textdirection="rtl">
+<html  data-textdirection="rtl">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
     <meta name="description" content="SigTest">
     <meta name="keywords" content="cyber,pentest,testserver,django,docker,nginx,html,css,tailwind">
+	<link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+	<link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
     <meta name="author" content="iowebapps">
     <title>Sig Test</title>
-    <link
-      href="{% static 'home/full.css' %}"
-      rel="stylesheet"
-      type="text/css"
-    />
     <link
     href="{% static 'home/output.css' %}"
     rel="stylesheet"
     type="text/css"
   />
     
-    <!-- <script src="{% static 'home/tail.js' %}"></script> -->
     <script src="{% static 'home/htmx.min.js' %}"></script>
 
-
+	
 
     <style>
+.accessfont {
+  font-size: 150%;
 
+}
+.accessfontmin {
+  font-size: 75%;
+
+}
+.accessgray{
+  -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+.accesscontrast{
+  filter: contrast(50%);
+}
+
+.zoomup{
+  zoom: 150%;
+}
+
+.zoomdown{
+  zoom: 75%;
+}
+
+
+.progress {
+	position: fixed;
+	top: 0;
+	z-index: 1000;
+	height: 4px;
+	width: 100%;
+	border-radius: 2px;
+	background-clip: padding-box;
+	overflow: hidden;
+}
+.progress .indeterminate:before {
+	content: '';
+	position: absolute;
+	background-color: inherit;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	will-change: left, right;
+	-webkit-animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+	animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+}
+.progress .indeterminate:after {
+	content: '';
+	position: absolute;
+	background-color: inherit;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	will-change: left, right;
+	-webkit-animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+	animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+	-webkit-animation-delay: 1.15s;
+	animation-delay: 1.15s;
+}
+.progress {
+	display: none;
+}
+.htmx-request .progress {
+	display: block;
+}
+.htmx-request.progress {
+	display: block;
+}
+@-webkit-keyframes indeterminate {
+	0% {
+		left: -35%;
+		right: 100%;
+	}
+	60% {
+		left: 100%;
+		right: -90%;
+	}
+	100% {
+		left: 100%;
+		right: -90%;
+	}
+}
+@keyframes indeterminate {
+	0% {
+		left: -35%;
+		right: 100%;
+	}
+	60% {
+		left: 100%;
+		right: -90%;
+	}
+	100% {
+		left: 100%;
+		right: -90%;
+	}
+}
+@-webkit-keyframes indeterminate-short {
+	0% {
+		left: -200%;
+		right: 100%;
+	}
+	60% {
+		left: 107%;
+		right: -8%;
+	}
+	100% {
+		left: 107%;
+		right: -8%;
+	}
+}
+@keyframes indeterminate-short {
+	0% {
+		left: -200%;
+		right: 100%;
+	}
+	60% {
+		left: 107%;
+		right: -8%;
+	}
+	100% {
+		left: 107%;
+		right: -8%;
+	}
+}
     .isclick{
         cursor: pointer;
     }
     </style>
   </head>
-  <body dir="rtl">
+  <body  dir="rtl">
+    <div id="accesscontrol" >
+      {% include 'chucky/header.html' %}
 
-    {% include 'chucky/header.html' %}
+      <div class="mt-2 mb-4 static ">
+        {% block content %}
+        {% endblock %}
+      </div>
+  
+     
+  
+  
+  
+	  {% include 'chucky/footer.html' %}
 
-    <div class="mt-2 mb-4 static ">
-      {% block content %}
-      {% endblock %}
     </div>
-
-   
-
-    {% include 'chucky/footer.html' %}
-
-
-
-    
 
 
       <script>
@@ -70,7 +191,72 @@
             event.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
             
         })
+
+		// localstorage theme check and set. will remeber theme after first load.
+		function chengethm(myitem){
+			// alert(myitem)
+			var element = document.getElementById("accesscontrol");
+			element.dataset.theme=myitem
+			localStorage.setItem("theme-mode", myitem);
+
+		}
+
+		if (localStorage.getItem('theme-mode') == 'null' || !('theme-mode' in localStorage)) {
+			// alert('defult')
+			chengethm('light')
+		} else {
+			// alert(localStorage.getItem('theme-mode'))
+			chengethm(localStorage.getItem('theme-mode'))
+		}        
+
+
+		// auto update server stats
+		function updatestate(mystate){
+			// alert(mystate)
+			
+
+			if (mystate=="off"){
+				localStorage.setItem("autoupdate", 'off');
+				document.getElementById("updatecontrol2").innerHTML="";
+				htmx.process(document.getElementById("updatecontrol2"))
+
+
+
+			}
+			else{
+				localStorage.setItem("autoupdate", 'on');
+				document.getElementById("updatecontrol2").innerHTML="<div  hx-get='{% url 'serverstat'%}' hx-trigger='load, every 10s' hx-target='#mydata'></div>";
+				htmx.process(document.getElementById("updatecontrol2"))
+			}
+		}
+
+		if (localStorage.getItem('autoupdate') == 'null' || !('autoupdate' in localStorage)) {
+			document.getElementById("updatecontrol").checked = false;
+
+			updatestate('on')
+		} else {
+			if (localStorage.getItem('autoupdate') == "on"){
+				document.getElementById("updatecontrol").checked = false;
+
+			}
+			else{
+				document.getElementById("updatecontrol").checked = true;
+
+			}
+			updatestate(localStorage.getItem('autoupdate'))
+		}
     </script>
+
+  <div id="myaccess" class="fixed"  style="bottom: 25%; left:20px;">
+    {% include 'chucky/access.html' %}
+
+  </div>
+    <div class="progress" style="height: 10px; background-color: white;">
+      <div class="indeterminate" style="background-color: greenyellow;"></div>
+    </div>
+
+
+
   </body>
 
 </html>

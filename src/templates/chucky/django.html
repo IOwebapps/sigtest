@@ -7,21 +7,27 @@
     </div>
     
     
-      <div class="mockup-code mr-2 ml-2 mb-1 mt-4">
-        <pre><code>תיקיית M
-            ├─docker-compose.yml     #שליטה בבניית מכולה
-            ├── src                  #תיקיית קוד ראשית
-            │    ├── // apps         #תיקיות אפליקציות
-            │    │         └──home   #האפליקציה כולל פונקציות וקישורים
-            │    ├── // iosettings   #הגדרות מערכת ושרת
-            │    ├── // static       #הגשת CSS/מדיה
-            │    ├── // templates    #הגשת HTML
-            │    │ 
-            │    ├requirements.pip   #מריץ ומתקין את הרשימה בבנייה
-            │
-            └──  compose              #תיקיית פקודות בנייה
-           </code></pre>
-        <pre  class="text-warning"><code>קובץ עבודה ראשי scr/apps/home/views.py</code></pre> 
+      <div class="mockup-code mr-2 ml-2 mb-1 mt-4 flex flex-wrap">
+          <div>
+            <pre><code>תיקיית M
+                ├─docker-compose.yml     #שליטה בבניית מכולה
+                ├── src                  #תיקיית קוד ראשית
+                │    ├── // apps         #תיקיות אפליקציות
+                │    │         └──home   #האפליקציה כולל פונקציות וקישורים
+                │    ├── // iosettings   #הגדרות מערכת ושרת
+                │    ├── // static       #הגשת CSS/מדיה
+                │    ├── // templates    #הגשת HTML
+                │    │ 
+                │    ├requirements.pip   #מריץ ומתקין את הרשימה בבנייה
+                │
+                └──  compose              #תיקיית פקודות בנייה
+               </code></pre>
+          </div>
+      
+           <div>
+            <pre  class="text-warning"><code>קובץ עבודה ראשי scr/apps/home/views.py</code></pre> 
+
+           </div>
         <pre  class="text-success"><code>קובץ קישורי שרת ראשי scr/apps/home/url.py</code></pre>
         <pre  class="text-accent"><code>קובץ הגדרות ראשי scr/ioSettings/settings.py</code></pre>
         <pre  class="text-error"><code>חובה לרענן מכולת SiteWeb לאחר שינוי קוד פייטון!</code></pre>
@@ -32,10 +38,10 @@
         הדגמות
     </div>
     
-    <div class="mockup-code mr-2 ml-2 mb-1 mt-4">
-        <pre><code>הגשת דף עם    scr/apps/home/views.py   CLASS
+    <div class="mockup-code mr-2 ml-2 mb-1 mt-4 flex flex-wrap" style="direction: ltr;">
+        <pre><code >הגשת דף עם    scr/apps/home/views.py   CLASS
            </code></pre>
-        <pre   style="direction: ltr;"><code>class HomeServe(TemplateView):
+        <pre   ><code >class HomeServe(TemplateView):
             template_name = 'home.html'  #page path in tamplates folder
     
             #context
@@ -44,7 +50,7 @@
                 context['title'] ="סייבר"  # add context title with the = var to the serve / in html you will call {{title}} to get the var/array/object|s
                 return context</code></pre> 
         <pre  class="text-success"><code>בכדי להגיש פונקציה או קלסס חיצוני חובה להוסיף שורה בקובץ ה scr/apps/home/url.py</code></pre>
-        <pre   style="  direction: ltr;"><code>urlpatterns = [
+        <pre  ><code class="mr-2 ml-2">urlpatterns = [
             path('',HomeServe.as_view(),name="myhub"),  #call class HomeServe as main view on root url 
             re_path(r'^mypath/',views.pathme, name='mypath'),   #call function pathme and name it mypath to allow html call it by { % mypath%} , שם הקישור יהיה mypath
             # יש להוסיף את אופי הפונקציה לתוך הרשימה
@@ -53,14 +59,14 @@
         <pre  class="text-error"><code>חובה לרענן מכולת SiteWeb לאחר שינוי קוד פייטון!</code></pre>
       </div>
     
-      <div class="mockup-code mr-2 ml-2 mb-1 mt-4">
-        <pre><code>הגשת דף עם scr/apps/home/views.py  function
+      <div class="mockup-code mr-2 ml-2 mb-1 mt-4 flex flex-wrap" style="direction: ltr;">
+        <pre><code>serve page with function scr/apps/home/views.py 
            </code></pre>
-        <pre   style="  direction: ltr;"><code>def pathme(request):
+        <pre  ><code>def pathme(request):
             mainelement=request.GET.get('query_set')  #get the var of query_set from the request
             return render(request, 'chucky/'+mainelement+'.html')  #return html based on the query_set in the request</code></pre> 
         <pre  class="text-success"><code>בכדי להגיש פונקציה או קלסס חיצוני חובה להוסיף שורה בקובץ ה scr/apps/home/url.py</code></pre>
-        <pre   style="  direction: ltr;"><code>urlpatterns = [
+        <pre  ><code>urlpatterns = [
             path('',HomeServe.as_view(),name="myhub"),  #call class HomeServe as main view on root url 
             re_path(r'^mypath/',views.pathme, name='mypath'),   #call function pathme and name it mypath to allow html call it by { % mypath%} , שם הקישור יהיה mypath
             # יש להוסיף את אופי הפונקציה לתוך הרשימה
@@ -69,9 +75,9 @@
         <pre  class="text-success"><code>בכדי לזמן את הקישור ניתן לכתוב ב scr/templates/base.html</code></pre>
         ניתן לקרוא בשם בעזרת
             { % %}
-        <pre   style="  direction: ltr;"><code>
+        <pre  ><code>
             
-            hx-get="{% url 'mypath'%}?query_set=django"  hx-target="#maindiv"   
+            hx-get="{% url 'mypath'%}?query_set=django" hx-indicator=".progress" hx-target="#maindiv"   
     <div class="divider h-16	 sm:divider-horizontal"></div> </code></pre> 
         <pre  class="text-error"><code>חובה לרענן מכולת SiteWeb לאחר שינוי קוד פייטון!</code></pre>
       </div>

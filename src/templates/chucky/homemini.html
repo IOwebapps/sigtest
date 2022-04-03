@@ -1,62 +1,39 @@
 
 
           <!-- Card -->
-  <div class="card mb-20 mr-4 ml-4  mt-10 bg-base-200 shadow-xl">
+  <div class="card  mr-4 ml-4  mt-10 bg-base-200 shadow-xl">
     <div id="maindiv" class="card-body">
-          
+      טופס בדיקת Selenium
           <div id="maindivmini" class="text-center">
             <div >
-              <form class="flex justify-center items-center mx-auto" autocomplete="off" hx-indicator="#spinner" hx-target="#selresult" hx-post="{% url 'mybot'%}">
+              <form class="gap-4 flex flex-wrap justify-center" autocomplete="off" hx-indicator=".progress" hx-target="#selresult" hx-post="{% url 'mybot'%}">
                 <input type="text" name="siteinput" required placeholder="google.com" class="input input-bordered input-secondary w-full max-w-xs mr-2 ml-2">
 
-                <button  class="btn gap-2 ">
+                <button  class="btn gap-2 btn-secondary">
                   התחל|י בדיקה Selenium
                   <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1080 1080"><defs><style>.cls-1,.cls-7{fill:#ff8d76;}.cls-2,.cls-9{fill:#99adf9;}.cls-11,.cls-3{fill:#fec272;}.cls-16,.cls-4{fill:#e1ecff;}.cls-5{isolation:isolate;}.cls-6{clip-path:url(#clip-path);}.cls-7{opacity:0.28;}.cls-11,.cls-16,.cls-7,.cls-9{mix-blend-mode:multiply;}.cls-8{clip-path:url(#clip-path-2);}.cls-9{opacity:0.48;}.cls-10{clip-path:url(#clip-path-3);}.cls-11,.cls-12{opacity:0.26;}.cls-12{fill:#fff;mix-blend-mode:soft-light;}.cls-13{fill:#1c3177;}.cls-14{fill:none;stroke:#1c3177;stroke-linecap:round;stroke-miterlimit:10;stroke-width:9px;}.cls-15{clip-path:url(#clip-path-4);}.cls-16{opacity:0.75;}</style><clipPath id="clip-path"><ellipse class="cls-1" cx="757.68" cy="356.66" rx="84.93" ry="134.78"/></clipPath><clipPath id="clip-path-2"><rect class="cls-2" x="171.88" y="299.78" width="744.09" height="81.48" rx="17.3"/></clipPath><clipPath id="clip-path-3"><path class="cls-3" d="M672.75,356.66c0-74.43,38-134.77,84.93-134.77H330.16c-46.91,0-84.94,60.34-84.94,134.77s38,134.78,84.94,134.78H757.68C710.77,491.44,672.75,431.1,672.75,356.66Z"/></clipPath><clipPath id="clip-path-4"><path class="cls-4" d="M757.68,491.44H330.16s2.25,277.24-84.94,354.1H470.89l17.68-18.44,6.15,18.44h35.75L543.92,834l7.92,11.53h80.49l40.42-45.35v45.35h23.37S780.29,732.93,757.68,491.44Z"/></clipPath></defs><g class="cls-5"><g id="Layer_2" data-name="Layer 2"><ellipse class="cls-1" cx="757.68" cy="356.66" rx="84.93" ry="134.78"/><g class="cls-6"><ellipse class="cls-7" cx="691.37" cy="356.66" rx="84.93" ry="134.78"/></g><rect class="cls-2" x="171.88" y="299.78" width="744.09" height="81.48" rx="17.3"/><g class="cls-8"><path class="cls-9" d="M606.44,381.77H720.72S708.25,366.82,708.25,341s12.47-41.21,12.47-41.21H606.44Z"/><path class="cls-9" d="M186,299.78h92a0,0,0,0,1,0,0v82a0,0,0,0,1,0,0H186a14.09,14.09,0,0,1-14.09-14.09V313.87A14.09,14.09,0,0,1,186,299.78Z"/></g><path class="cls-3" d="M672.75,356.66c0-74.43,38-134.77,84.93-134.77H330.16c-46.91,0-84.94,60.34-84.94,134.77s38,134.78,84.94,134.78H757.68C710.77,491.44,672.75,431.1,672.75,356.66Z"/><g class="cls-10"><rect class="cls-11" x="232.6" y="454.28" width="622.63" height="92.24"/><rect class="cls-12" x="201.44" y="198.06" width="622.63" height="92.24"/></g><circle class="cls-13" cx="381.13" cy="340.99" r="19.54"/><circle class="cls-13" cx="532.3" cy="340.99" r="19.54"/><path class="cls-14" d="M433.42,381.77s4.88-14.42,23.59-14.42,23,14.42,23,14.42"/><path class="cls-4" d="M757.68,491.44H330.16s2.25,277.24-84.94,354.1H470.89l17.68-18.44,6.15,18.44h35.75L543.92,834l7.92,11.53h80.49l40.42-45.35v45.35h23.37S780.29,732.93,757.68,491.44Z"/><g class="cls-15"><rect class="cls-16" x="302.41" y="484.07" width="504.4" height="67.75"/></g></g></g></svg>
                 </button>
               </form>
-             
-                    <svg version="1.1"   id="spinner" class="htmx-indicator w-12 h-12 mx-auto" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
-                      <circle fill="none" stroke="#009688" stroke-width="6" stroke-miterlimit="15" stroke-dasharray="14.2472,14.2472" cx="50" cy="50" r="47">
-                        <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="5s" from="0 50 50" to="360 50 50" repeatCount="indefinite"></animateTransform>
-                    </circle>
-                    <circle fill="none" stroke="#009688" stroke-width="1" stroke-miterlimit="10" stroke-dasharray="10,10" cx="50" cy="50" r="39">
-                        <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="5s" from="0 50 50" to="-360 50 50" repeatCount="indefinite"></animateTransform>
-                    </circle>
-                    <g fill="#009688">
-                    <rect x="30" y="35" width="5" height="30">
-                      <animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5" repeatCount="indefinite" begin="0.1"></animateTransform>
-                    </rect>
-                    <rect x="40" y="35" width="5" height="30">
-                      <animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5" repeatCount="indefinite" begin="0.2"></animateTransform>
-                    </rect>
-                    <rect x="50" y="35" width="5" height="30">
-                      <animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5" repeatCount="indefinite" begin="0.3"></animateTransform>
-                    </rect>
-                    <rect x="60" y="35" width="5" height="30">
-                      <animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5" repeatCount="indefinite" begin="0.4"></animateTransform>
-                    </rect>
-                    <rect x="70" y="35" width="5" height="30">
-                      <animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5" repeatCount="indefinite" begin="0.5"></animateTransform>
-                    </rect>
-                    </g>
-                 </svg>
+              
+              
+                  
             </div>
-            <div id="selresult" class="text-center"></div>
+            <div id="selresult" class="text-center justify-center flex"></div>
           </div>
          
           
     </div>
   </div>
 
-  <div class="card mb-20 mr-4 ml-4  mt-10 bg-base-200 shadow-xl">
+  <div class="card  mr-4 ml-4  mt-10 bg-base-200 shadow-xl">
     <div id="maindiv" class="card-body">
            טופס POST
           <div id="maindivmini" class="text-center">
             <div >
-              <form class="flex justify-center items-center mx-auto" autocomplete="off" hx-indicator="#spinner" hx-target="#postresult" hx-post="{% url 'mypen'%}">
+              <form class="gap-4 flex flex-wrap justify-center"  autocomplete="off" hx-indicator=".progress" hx-target="#postresult" hx-post="{% url 'mypen'%}">
                 <input type="text" name="mydata" required placeholder="הכנס|י כל קלט" class="input input-bordered input-secondary w-full max-w-xs mr-2 ml-2">
 
-                <button  class="btn gap-2 ">
+                <button  class="btn gap-2 btn-secondary">
                   שליחת POST
                   <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12" viewBox="0 0 20 20" fill="currentColor">
                     <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
@@ -66,31 +43,7 @@
                 </button>
               </form>
              
-                    <svg version="1.1"   id="spinner" class="htmx-indicator w-12 h-12 mx-auto" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
-                      <circle fill="none" stroke="#009688" stroke-width="6" stroke-miterlimit="15" stroke-dasharray="14.2472,14.2472" cx="50" cy="50" r="47">
-                        <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="5s" from="0 50 50" to="360 50 50" repeatCount="indefinite"></animateTransform>
-                    </circle>
-                    <circle fill="none" stroke="#009688" stroke-width="1" stroke-miterlimit="10" stroke-dasharray="10,10" cx="50" cy="50" r="39">
-                        <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="5s" from="0 50 50" to="-360 50 50" repeatCount="indefinite"></animateTransform>
-                    </circle>
-                    <g fill="#009688">
-                    <rect x="30" y="35" width="5" height="30">
-                      <animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5" repeatCount="indefinite" begin="0.1"></animateTransform>
-                    </rect>
-                    <rect x="40" y="35" width="5" height="30">
-                      <animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5" repeatCount="indefinite" begin="0.2"></animateTransform>
-                    </rect>
-                    <rect x="50" y="35" width="5" height="30">
-                      <animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5" repeatCount="indefinite" begin="0.3"></animateTransform>
-                    </rect>
-                    <rect x="60" y="35" width="5" height="30">
-                      <animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5" repeatCount="indefinite" begin="0.4"></animateTransform>
-                    </rect>
-                    <rect x="70" y="35" width="5" height="30">
-                      <animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5" repeatCount="indefinite" begin="0.5"></animateTransform>
-                    </rect>
-                    </g>
-                 </svg>
+                  
             </div>
             <div id="postresult" class="text-center"></div>
           </div>
@@ -99,15 +52,15 @@
     </div>
   </div>
 
-  <div class="card mb-20 mr-4 ml-4  mt-10 bg-base-200 shadow-xl">
+  <div class="card  mr-4 ml-4  mt-10 bg-base-200 shadow-xl">
     <div id="maindiv" class="card-body">
            טופס GET
           <div id="maindivmini" class="text-center">
             <div >
-              <form class="flex justify-center items-center mx-auto" autocomplete="off" hx-indicator="#spinner" hx-target="#getresult" hx-get="{% url 'mypen'%}">
+              <form class="gap-4 flex flex-wrap justify-center"  autocomplete="off" hx-indicator=".progress" hx-target="#getresult" hx-get="{% url 'mypen'%}">
                 <input type="text" name="mydata" required placeholder="הכנס|י כל קלט" class="input input-bordered input-secondary w-full max-w-xs mr-2 ml-2">
 
-                <button  class="btn gap-2 ">
+                <button  class="btn gap-2 btn-secondary">
                   שליחת GET
                   <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12" viewBox="0 0 20 20" fill="currentColor">
                     <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
@@ -117,31 +70,7 @@
                 </button>
               </form>
              
-                    <svg version="1.1"   id="spinner" class="htmx-indicator w-12 h-12 mx-auto" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
-                      <circle fill="none" stroke="#009688" stroke-width="6" stroke-miterlimit="15" stroke-dasharray="14.2472,14.2472" cx="50" cy="50" r="47">
-                        <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="5s" from="0 50 50" to="360 50 50" repeatCount="indefinite"></animateTransform>
-                    </circle>
-                    <circle fill="none" stroke="#009688" stroke-width="1" stroke-miterlimit="10" stroke-dasharray="10,10" cx="50" cy="50" r="39">
-                        <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="5s" from="0 50 50" to="-360 50 50" repeatCount="indefinite"></animateTransform>
-                    </circle>
-                    <g fill="#009688">
-                    <rect x="30" y="35" width="5" height="30">
-                      <animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5" repeatCount="indefinite" begin="0.1"></animateTransform>
-                    </rect>
-                    <rect x="40" y="35" width="5" height="30">
-                      <animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5" repeatCount="indefinite" begin="0.2"></animateTransform>
-                    </rect>
-                    <rect x="50" y="35" width="5" height="30">
-                      <animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5" repeatCount="indefinite" begin="0.3"></animateTransform>
-                    </rect>
-                    <rect x="60" y="35" width="5" height="30">
-                      <animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5" repeatCount="indefinite" begin="0.4"></animateTransform>
-                    </rect>
-                    <rect x="70" y="35" width="5" height="30">
-                      <animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5" repeatCount="indefinite" begin="0.5"></animateTransform>
-                    </rect>
-                    </g>
-                 </svg>
+               
             </div>
             <div id="getresult" class="text-center"></div>
           </div>
@@ -151,7 +80,31 @@
   </div>
     
 
+  <div class="card  mr-4 ml-4  mt-10 bg-base-200 shadow-xl">
+    <div id="maindiv" class="card-body">
+           טופס סילניום מרובה
+          <div id="maindivmini" class="text-center">
+            <div >
+              <form class="gap-4 flex flex-wrap justify-center"  autocomplete="off" hx-indicator=".progress" hx-target="#cnibalresult" hx-post="{% url 'canibals'%}">
+                <input type="number" name="mydata" pattern="[0-9]+"  min="1" max="20" required placeholder="הכנס|י מספר מ1-20" class="input input-bordered input-secondary w-full max-w-xs mr-2 ml-2">
 
+                <button  class="btn gap-2 btn-secondary">
+                  שליחת סילניום מרובה
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
+                    <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd" />
+                  </svg>
+                  <!-- <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1080 1080"><defs><style>.cls-1,.cls-7{fill:#ff8d76;}.cls-2,.cls-9{fill:#99adf9;}.cls-11,.cls-3{fill:#fec272;}.cls-16,.cls-4{fill:#e1ecff;}.cls-5{isolation:isolate;}.cls-6{clip-path:url(#clip-path);}.cls-7{opacity:0.28;}.cls-11,.cls-16,.cls-7,.cls-9{mix-blend-mode:multiply;}.cls-8{clip-path:url(#clip-path-2);}.cls-9{opacity:0.48;}.cls-10{clip-path:url(#clip-path-3);}.cls-11,.cls-12{opacity:0.26;}.cls-12{fill:#fff;mix-blend-mode:soft-light;}.cls-13{fill:#1c3177;}.cls-14{fill:none;stroke:#1c3177;stroke-linecap:round;stroke-miterlimit:10;stroke-width:9px;}.cls-15{clip-path:url(#clip-path-4);}.cls-16{opacity:0.75;}</style><clipPath id="clip-path"><ellipse class="cls-1" cx="757.68" cy="356.66" rx="84.93" ry="134.78"/></clipPath><clipPath id="clip-path-2"><rect class="cls-2" x="171.88" y="299.78" width="744.09" height="81.48" rx="17.3"/></clipPath><clipPath id="clip-path-3"><path class="cls-3" d="M672.75,356.66c0-74.43,38-134.77,84.93-134.77H330.16c-46.91,0-84.94,60.34-84.94,134.77s38,134.78,84.94,134.78H757.68C710.77,491.44,672.75,431.1,672.75,356.66Z"/></clipPath><clipPath id="clip-path-4"><path class="cls-4" d="M757.68,491.44H330.16s2.25,277.24-84.94,354.1H470.89l17.68-18.44,6.15,18.44h35.75L543.92,834l7.92,11.53h80.49l40.42-45.35v45.35h23.37S780.29,732.93,757.68,491.44Z"/></clipPath></defs><g class="cls-5"><g id="Layer_2" data-name="Layer 2"><ellipse class="cls-1" cx="757.68" cy="356.66" rx="84.93" ry="134.78"/><g class="cls-6"><ellipse class="cls-7" cx="691.37" cy="356.66" rx="84.93" ry="134.78"/></g><rect class="cls-2" x="171.88" y="299.78" width="744.09" height="81.48" rx="17.3"/><g class="cls-8"><path class="cls-9" d="M606.44,381.77H720.72S708.25,366.82,708.25,341s12.47-41.21,12.47-41.21H606.44Z"/><path class="cls-9" d="M186,299.78h92a0,0,0,0,1,0,0v82a0,0,0,0,1,0,0H186a14.09,14.09,0,0,1-14.09-14.09V313.87A14.09,14.09,0,0,1,186,299.78Z"/></g><path class="cls-3" d="M672.75,356.66c0-74.43,38-134.77,84.93-134.77H330.16c-46.91,0-84.94,60.34-84.94,134.77s38,134.78,84.94,134.78H757.68C710.77,491.44,672.75,431.1,672.75,356.66Z"/><g class="cls-10"><rect class="cls-11" x="232.6" y="454.28" width="622.63" height="92.24"/><rect class="cls-12" x="201.44" y="198.06" width="622.63" height="92.24"/></g><circle class="cls-13" cx="381.13" cy="340.99" r="19.54"/><circle class="cls-13" cx="532.3" cy="340.99" r="19.54"/><path class="cls-14" d="M433.42,381.77s4.88-14.42,23.59-14.42,23,14.42,23,14.42"/><path class="cls-4" d="M757.68,491.44H330.16s2.25,277.24-84.94,354.1H470.89l17.68-18.44,6.15,18.44h35.75L543.92,834l7.92,11.53h80.49l40.42-45.35v45.35h23.37S780.29,732.93,757.68,491.44Z"/><g class="cls-15"><rect class="cls-16" x="302.41" y="484.07" width="504.4" height="67.75"/></g></g></g></svg> -->
+                </button>
+              </form>
+             
+            </div>
+            <div id="cnibalresult" class="text-center"></div>
+          </div>
+         
+          
+    </div>
+  </div>
   
 
    
