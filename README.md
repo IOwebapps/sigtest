@@ -15,6 +15,7 @@ Update 1.0.3:
 9. הוספת בקר שליטה עבור עדכון מצב שרת. מופעל/כבוי. HTMX , Localstorage
 10. אנחנו עדיין בגישת דף בודד. המערכת מעדכנת רק את האלמנט הדרוש. html | css | htmx | django
 11. LOADER גלובלי על כל בקשות HTMX
+12. code boxes semi Bugged. use the file not the code box UI.
 
 ![firefox_o38ZKhF94C](https://user-images.githubusercontent.com/102602422/161429517-2fc9a5b1-e20d-4d14-91fb-81f655eff7d5.png)
 
